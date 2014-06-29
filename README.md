@@ -4,7 +4,23 @@ the first testing-phase project of [gameruum](gameruum.io).
 
 ## TODO
 
+<!-- -->
+
+- write queries find
+    - discrepancies for djb2
+    - discrepancies for ...
+    - fastest hash algorithm
+
+<!-- -->
+
 - use a session store module and include session ID in each report
+
+<!-- -->
+
+- include richer object data in each report
+    - number of object fields
+    - serialization length
+    - object size in bytes (?)
 
 ## database notes:
 
