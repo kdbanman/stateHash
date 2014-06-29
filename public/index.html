@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+              font-family: Helvetica, arial, sans-serif;
+              font-size: 16px;
+              line-height: 1.6;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              background-color: white;
+              padding: 30px;
+              max-width: 32em; }
+
+            body > *:first-child {
+              margin-top: 0 !important; }
+
+            body > *:last-child {
+              margin-bottom: 0 !important; }
+
+            p, blockquote, ul, ol, dl, li, table, pre {
+              margin: 15px 0; }
+
+            .old {
+              color: #d8d8d8; }
+
+            .invisible {
+              display: none; }
+
+            #error {
+              color: #aa3333; }
+
+            code, tt {
+              margin: 0 2px;
+              padding: 0 5px;
+              white-space: nowrap;
+              border: 1px solid #eaeaea;
+              background-color: #f8f8f8;
+              border-radius: 3px; }
+
+            pre code {
+              margin: 0;
+              padding: 0;
+              white-space: pre;
+              border: none;
+              background: transparent; }
+
+            .highlight pre {
+              background-color: #f8f8f8;
+              border: 1px solid #cccccc;
+              font-size: 13px;
+              line-height: 19px;
+              overflow: auto;
+              padding: 6px 10px;
+              border-radius: 3px; }
+
+            pre {
+              background-color: #f8f8f8;
+              border: 1px solid #cccccc;
+              font-size: 13px;
+              line-height: 19px;
+              overflow: auto;
+              padding: 6px 10px;
+              border-radius: 3px; }
+
+            pre code, pre tt {
+              background-color: transparent;
+              border: none; }
+        </style>
+        <title>stateHash</title>
+    </head>
+    <body>
+        <p>Status: <code><span class="status">WAITING ON SERVER</span></code></p>
+        <p>Thanks for donating some of your CPU cycles and bandwidth!  You're helping me learn how to synchronize multiplayer games:)</p>
+        <p><i>NOTE: This thing hogs battery life and bandwidth, so be careful if either of those matter to you.</i></p>
+        <p>Your 'puter is generating and processing objects, and it's telling my server what went down each time.  It'll make bigger and bigger objects (taking more and more time) until size 200 is reached.  After that, the size will go back down to one and things will get <b>rippin' fast</b> all over again.</p>
+        <p>The same sequence of 200 objects probably won't be seen ever again, even if your browser sits until your processor burns up!  ...until you revisit the page.  Every time you revisit the page, no matter the browser, operating system, platform or architecture, the same objects should be coughed up every time.</p>
+        <p>That sameness is an important thing for me to figure out!  If you want to help me, visit this site on Firefox, Chrome, Safari, Opera, Tor, Maxthon, Skyfire, Avant, Konqueror, Midori, uZard, or even Internet Explorer!</p>
+        <p>Visits from desktops, tablets, and phones help too!  Like I said, though, <i>don't do it for long if your battery or network bandwidth are limited!</i></p>
+        <p>Did something weird/bad happen?  <a href="mailto:kirby.banman@gmail.com">Tell me if you feel like it.</a></p>
+        <p>Status: <code><span class="status">WAITING ON SERVER</span></code></p>
+        <p class="invisible error">Errors:<ol class="errorlist"></ol></p>
+        <p>Hashcodes:</p>
+        <pre><code>djb2:          <span id="djb2"></span>
+sdbm:          <span id="sdbm"></span>
+javaHashCode:  <span id="javaHashCode"></span>
+crc32:         <span id="crc32"></span></code></pre>
+        <p>Object:</p>
+        <pre><code><div id="rendered"></div></code></pre>
+        <script src="jquery-1.11.1.js"></script>
+        <script src="mersenne-twister.js"></script>
+        <script src="es-hash-web.js"></script>
+        <script src="rand.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="promise-1.0.0.js"></script>
+        <script src="comms.js"></script>
+    </body>
+</html>
