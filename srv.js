@@ -36,13 +36,6 @@ ioSrv.on('connection', function (socket) {
     // emit initial generate command, appendng current time in millis
     socket.emit('generate', _.extend(genCommand(currSeed), {sent: Date.now()}));
 
-    //DEBUG TWO
-    console.log('DEBUG TWO');
-    console.log('DEBUG TWO');
-    console.log('DEBUG TWO');
-    console.log('DEBUG TWO');
-    console.log('DEBUG TWO');
-
     // receive client result events
     socket.on('result', function (data, fn) {
 
