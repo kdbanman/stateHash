@@ -1,6 +1,6 @@
 # stateHash
 
-the first testing-phase project of [gameruum](gameruum.io).
+the first testing-phase project of [gameruum](http://gameruum.io).
 
 ## TODO
 
