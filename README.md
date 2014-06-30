@@ -6,6 +6,10 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 <!-- -->
 
+- host at gameruum.io
+
+<!-- -->
+
 - write queries find
     - discrepancies for djb2
     - discrepancies for ...
