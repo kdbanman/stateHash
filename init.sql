@@ -1,4 +1,7 @@
--- TODO: CREATEDB stateHash
+/*
+Run this script against an existing stateHash database to drop and create
+`reports` table and primary key sequence `report_sequence`
+*/
 
 DROP TABLE IF EXISTS reports;
 DROP SEQUENCE IF EXISTS report_sequence;
