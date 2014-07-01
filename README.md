@@ -24,6 +24,10 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 <!-- -->
 
+- fix hash algorithm transit
+
+<!-- -->
+
 - use a session store module and include session ID in each report
 
 <!-- -->
