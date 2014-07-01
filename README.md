@@ -8,9 +8,19 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 - figure out which objects and user agents are misbehaving
     - write queries for
-        - number of discrepancies for each hash
-        - number of discrepancies for each seed for a given hash
+        - number of discrepancies for remaining 3 hashes
+            - all used in results/ root together
+        - number of discrepancies for each seed for remaining 3 hashes
+            - each used for different results/<hash>
+        - all report data containing distinct hash value and seed for given hash and seed
+            - each used for different results/<hash>/<seed>
         - fastest hash algorithm
+
+<!-- -->
+
+- expose results/ path, root is just a count of discrepancies for each hash
+    - rows clickable to drill in to results/<hash>
+    - rows clickable to drill in to rusults/<hash>/<seed>
 
 <!-- -->
 
