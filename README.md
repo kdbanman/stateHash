@@ -7,7 +7,7 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 <!-- -->
 
 - figure out which objects and user agents are misbehaving
-    - write queries for
+    - write queries  (parametrize/tokenize existing)
         - number of discrepancies for remaining 3 hashes
             - all used in results/ root together
         - number of discrepancies for each seed for remaining 3 hashes
