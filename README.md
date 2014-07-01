@@ -6,14 +6,11 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 <!-- -->
 
-- host at gameruum.io
-
-<!-- -->
-
-- write queries find
-    - discrepancies for djb2
-    - discrepancies for ...
-    - fastest hash algorithm
+- figure out which objects and user agents are misbehaving
+    - write queries for
+        - number of discrepancies for each hash
+        - number of discrepancies for each seed for a given hash
+        - fastest hash algorithm
 
 <!-- -->
 
