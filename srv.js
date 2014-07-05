@@ -16,6 +16,41 @@ var ioSrv = io(server)
 // log request/response activity in dev mode
 app.use(logger('dev'));
 
+// handle root results request
+app.get('/results', function (req, res) {
+    // get discrepancy counts of all 4 algorithms
+    var djb2 = sdbm = javaHashCode = crc_32 = -1;
+    storage.discrepancyCountTotal('djb2', function (err, total) {
+        if (err) res.send(JSON.stringify(err);
+        else djb2 = total;
+    });
+    storage.discrepancyCountTotal('sdbm', function (err, total) {
+        if (err) res.send(JSON.stringify(err);
+        else sdbm = total;
+    });
+    storage.discrepancyCountTotal('javaHashCode', function (err, total) {
+        if (err) res.send(JSON.stringify(err);
+        else javaHashCode = total;
+    });
+    storage.discrepancyCountTotal('crc_32', function (err, total) {
+        if (err) res.send(JSON.stringify(err);
+        else crc_32 = total;
+    });
+
+    // render the discrepancy counts as a response
+    res.send(djb2 + ' ' + sdbm + ' ' + javaHashCode + ' ' + crc_32);
+});
+
+// handle hash results request
+app.get('/results/:hash', function (req, res) {
+
+});
+
+// handle hash and seed results request
+app.get('/results/:hash/:seed', function (req, res) {
+
+});
+
 // try to serve requests as static file requests from the public/ directory
 app.use(express.static(path.join(__dirname, 'public')));
 
