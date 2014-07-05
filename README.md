@@ -1,6 +1,42 @@
 # stateHash
 
-the first testing-phase project of [gameruum](http://gameruum.io).
+The first testing-phase project of [gameruum](http://gameruum.io).
+It isn't meant to be pretty, but it does have some goals.
+The main goal was to get object generation and hashing to behave identically accross as many browsers as possible.
+Secondary goals were mostly educational, as the author (me!) wanted to increase his experience with error handling and architectural styles in the mutual context of socket.io, the node.js asynchronous environment, and a SQL database.
+
+Unexpected learning tangents were dense and intense.
+In no particular order, I was anywhere between steeped and sipping the following:
+
+- the express web framework
+- asynchronous promises
+- linux services
+- ssh port forwarding
+- jquery
+- css
+- live deployment
+- github webhooks
+- client-server state management
+- nginx
+- reverse proxying
+- load balancing
+- hashcodes
+- pseudorandom number generation
+
+The results of the experiment, in short, are that the browser-side object hash algorithms are behaving consistently, and that the object generation algorithm may not be as deterministic as hoped.
+How are the hashing algorithms consistent?
+They all exhibit the same number of discrepancies!
+That is, they all hashed the same number of object seeds differently in different contexts.
+That isn't desirable behavior, but the problem isn't necessarily with the hashing algorithms.
+The object generation algorithm appears to be generating different objects for a given seed, depending upon the browser context.
+
+Once the object generator is generating uniformly accross all contexts, this testing can resume to verify the consistency *and* correctness of the hashing algorithms.
+For now, though, stateHash will lie dormant in its current state.
+
+Uniform object generation will be the subject of the second testing-phase project of gameruum.
+The goal is to learn about the states of a synchronization room by generating objects from common seeds in lock-step sync across multiple browsers at the same time.
+By watching each step of object generation, I should be able to pinpoint the cause of desynchronization.
+But more importantly, alpha-esque scaffolding for a room of connected, synchronized clients will be laid for reference.
 
 ## TODO
 
