@@ -23,7 +23,7 @@ app.get('/results', function (req, res) {
     storage.discrepancyCountTotals(function (err, totals) {
         if (err) {
             res.send(JSON.stringify(err));
-            console.err(err);
+            console.error(err);
         } else {
             res.send(JSON.stringify(totals));
         }
@@ -79,9 +79,9 @@ ioSrv.on('connection', function (socket) {
         validateCommand(data, currSeed, function(err) {
             if (err) {
                 // data was not valid.  notify client and disconnect
-                console.err("ERROR: bad data received from %s", userAgent);
-                console.err("       " + JSON.stringify(data));
-                console.err("       " + err);
+                console.error("ERROR: bad data received from %s", userAgent);
+                console.error("       " + JSON.stringify(data));
+                console.error("       " + err);
 
                 // do not talk to client if it generates > 5 errors
                 errors++;
@@ -94,9 +94,9 @@ ioSrv.on('connection', function (socket) {
                 // data was valid, store it using an error callback
                 storage.store(data, function(err) {
                     if (err) {
-                        console.err("ERROR: could not store data from %s", userAgent);
-                        console.err("       " + JSON.stringify(data));
-                        console.err("       " + err);
+                        console.error("ERROR: could not store data from %s", userAgent);
+                        console.error("       " + JSON.stringify(data));
+                        console.error("       " + err);
                
                         // do not talk to client if it generates > 5 errors
                         errors++;
@@ -123,13 +123,13 @@ ioSrv.on('connection', function (socket) {
 
     // report errors (socket.io error event and my own)
     socket.on('error', function(err) {
-        console.err('ERROR from %s:', userAgent);
-        console.err('    ' + JSON.stringify(err));
+        console.error('ERROR from %s:', userAgent);
+        console.error('    ' + JSON.stringify(err));
     });
     // change to client error here and in public/comms.js
     socket.on('stateHash error', function(err) {
-        console.err('ERROR from %s:', userAgent);
-        console.err('    ' + JSON.stringify(err));
+        console.error('ERROR from %s:', userAgent);
+        console.error('    ' + JSON.stringify(err));
     });
 });
 
