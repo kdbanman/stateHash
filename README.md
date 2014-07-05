@@ -1,6 +1,8 @@
 # stateHash
 
-The first testing-phase project of [gameruum](http://gameruum.io).
+### 04 July 2014
+
+stateHash is the first testing-phase project of [gameruum](http://gameruum.io).
 It isn't meant to be pretty, but it does have some goals.
 The main goal was to get object generation and hashing to behave identically accross as many browsers as possible.
 Secondary goals were mostly educational, as the author (me!) wanted to increase his experience with error handling and architectural styles in the mutual context of socket.io, the node.js asynchronous environment, and a SQL database.
