@@ -32,12 +32,28 @@ app.get('/results', function (req, res) {
 
 // handle hash results request
 app.get('/results/:hash', function (req, res) {
-
+    storage.discrepancyCountPerSeed(req.params.hash, function (err, totals) {
+        if (err) {
+            res.send(JSON.stringify(err));
+            console.error(err);
+        } else {
+            res.send(JSON.stringify(totals));
+        }
+    });
 });
 
 // handle hash and seed results request
 app.get('/results/:hash/:seed', function (req, res) {
-
+    storage.seedReports(req.params.hash,
+                        req.params.seed,
+                        function (err, reports) {
+        if (err) {
+            res.send(JSON.stringify(err));
+            console.error(err);
+        } else {
+            res.send(JSON.stringify(reports));
+        }
+    });
 });
 
 // try to serve requests as static file requests from the public/ directory
