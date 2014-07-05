@@ -8,7 +8,8 @@
     "socket.io": "~1.0.0",
     "underscore": "",
     "should": "",
-    "pg": ""
+    "pg": "",
+    "q": ""
   },
   "devDependencies": {},
   "optionalDependencies": {},
