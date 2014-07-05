@@ -19,7 +19,7 @@ app.use(logger('dev'));
 // handle root results request
 app.get('/results', function (req, res) {
     // get discrepancy counts of all 4 algorithms
-    var djb2 = sdbm = javaHashCode = crc_32 = -1;
+    var djb2 = sdbm = javaHashCode = crc32 = -1;
     storage.discrepancyCountTotals(function (err, totals) {
         if (err) {
             res.send(JSON.stringify(err));
