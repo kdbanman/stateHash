@@ -7,14 +7,6 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 <!-- -->
 
 - figure out which objects and user agents are misbehaving
-    - write queries  (parametrize/tokenize existing)
-        - number of discrepancies for remaining 3 hashes
-            - all used in results/ root together
-        - number of discrepancies for each seed for remaining 3 hashes
-            - each used for different results/<hash>
-        - all report data containing distinct hash value and seed for given hash and seed
-            - each used for different results/<hash>/<seed>
-        - fastest hash algorithm
 
 <!-- -->
 
@@ -24,7 +16,11 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 <!-- -->
 
-- fix hash algorithm transit
+- fix hash algorithm traversal
+
+<!-- -->
+
+- figure out most performant hash algorithm
 
 <!-- -->
 
