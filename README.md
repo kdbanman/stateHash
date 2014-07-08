@@ -6,25 +6,11 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 <!-- -->
 
-- figure out which objects and user agents are misbehaving
-    - write queries  (parametrize/tokenize existing)
-        - number of discrepancies for remaining 3 hashes
-            - all used in results/ root together
-        - number of discrepancies for each seed for remaining 3 hashes
-            - each used for different results/<hash>
-        - all report data containing distinct hash value and seed for given hash and seed
-            - each used for different results/<hash>/<seed>
-        - fastest hash algorithm
+- clear and gather results again after hashStep has completed
 
 <!-- -->
 
-- expose results/ path, root is just a count of discrepancies for each hash
-    - rows clickable to drill in to results/<hash>
-    - rows clickable to drill in to rusults/<hash>/<seed>
-
-<!-- -->
-
-- fix hash algorithm transit
+- write and expose query for fastest hash algorithm
 
 <!-- -->
 
@@ -39,7 +25,7 @@ the first testing-phase project of [gameruum](http://gameruum.io).
 
 ## database notes:
 
-- `postgresql` must be listening on unix domain socket `/tmp/.s.PGSQL.5432`
+- `postgresql` with `stateHash` db must be listening on unix domain socket `/tmp/.s.PGSQL.5432`
 - `init.sql` will drop and create a table called `reports` to a database called `stateHash`
 
 ## start/stop app server:
