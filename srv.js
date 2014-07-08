@@ -16,6 +16,46 @@ var ioSrv = io(server)
 // log request/response activity in dev mode
 app.use(logger('dev'));
 
+// handle root results request
+app.get('/results', function (req, res) {
+    // get discrepancy counts of all 4 algorithms
+    var djb2 = sdbm = javaHashCode = crc32 = -1;
+    storage.discrepancyCountTotals(function (err, totals) {
+        if (err) {
+            res.send(JSON.stringify(err));
+            console.error(err);
+        } else {
+            res.send(JSON.stringify(totals));
+        }
+    });
+});
+
+// handle hash results request
+app.get('/results/:hash', function (req, res) {
+    storage.discrepancyCountPerSeed(req.params.hash, function (err, totals) {
+        if (err) {
+            res.send(JSON.stringify(err));
+            console.error(err);
+        } else {
+            res.send(JSON.stringify(totals));
+        }
+    });
+});
+
+// handle hash and seed results request
+app.get('/results/:hash/:seed', function (req, res) {
+    storage.seedReports(req.params.hash,
+                        req.params.seed,
+                        function (err, reports) {
+        if (err) {
+            res.send(JSON.stringify(err));
+            console.error(err);
+        } else {
+            res.send(JSON.stringify(reports));
+        }
+    });
+});
+
 // try to serve requests as static file requests from the public/ directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -55,9 +95,9 @@ ioSrv.on('connection', function (socket) {
         validateCommand(data, currSeed, function(err) {
             if (err) {
                 // data was not valid.  notify client and disconnect
-                console.log("ERROR: bad data received from %s", userAgent);
-                console.log("       " + JSON.stringify(data));
-                console.log("       " + err);
+                console.error("ERROR: bad data received from %s", userAgent);
+                console.error("       " + JSON.stringify(data));
+                console.error("       " + err);
 
                 // do not talk to client if it generates > 5 errors
                 errors++;
@@ -70,9 +110,9 @@ ioSrv.on('connection', function (socket) {
                 // data was valid, store it using an error callback
                 storage.store(data, function(err) {
                     if (err) {
-                        console.log("ERROR: could not store data from %s", userAgent);
-                        console.log("       " + JSON.stringify(data));
-                        console.log("       " + err);
+                        console.error("ERROR: could not store data from %s", userAgent);
+                        console.error("       " + JSON.stringify(data));
+                        console.error("       " + err);
                
                         // do not talk to client if it generates > 5 errors
                         errors++;
@@ -99,13 +139,13 @@ ioSrv.on('connection', function (socket) {
 
     // report errors (socket.io error event and my own)
     socket.on('error', function(err) {
-        console.log('ERROR from %s:', userAgent);
-        console.log('    ' + JSON.stringify(err));
+        console.error('ERROR from %s:', userAgent);
+        console.error('    ' + JSON.stringify(err));
     });
     // change to client error here and in public/comms.js
     socket.on('stateHash error', function(err) {
-        console.log('ERROR from %s:', userAgent);
-        console.log('    ' + JSON.stringify(err));
+        console.error('ERROR from %s:', userAgent);
+        console.error('    ' + JSON.stringify(err));
     });
 });
 
