@@ -44,6 +44,13 @@ But more importantly, alpha-esque scaffolding for a room of connected, synchroni
 
 <!-- -->
 
+- include stable-stringify and string hashing methods
+    - https://github.com/substack/json-stable-stringify
+    - https://github.com/Caligatio/jsSHA
+    - https://github.com/h2non/jshashes
+
+<!-- -->
+
 - clear and gather results again after hashStep has completed
 
 <!-- -->
